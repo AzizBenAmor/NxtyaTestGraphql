@@ -1,0 +1,18 @@
+extend
+
+
+type Mutation{
+
+    softDelete(email:String! @rules(apply: ["email","exists:visitors,email"])):String! @guard
+    Remove(email:String! @rules(apply: ["email","exists:visitors,email"])):String! @guard
+    Retrieve(email:String! @rules(apply: ["email","exists:visitors,email"])):String! @guard
+
+}
+
+
+type Admin{
+    id:ID!,
+    name:String!,
+    email:String!,
+    password:String!
+}

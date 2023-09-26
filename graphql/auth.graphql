@@ -1,0 +1,14 @@
+extend 
+type Mutation{
+
+    RegisterAdmin(name:String!, email:String!@rules(apply: ["email","unique:admins,email"]) , password:String!@rules(apply: ["min:4","max:25"])): String! 
+    RegisterVisitor(name:String!, email:String! @rules(apply: ["email","unique:visitors,email"]) , password:String!@rules(apply: ["min:4","max:25"])): String! 
+    loginAdmin(email: String! @rules(apply: ["email","exists:admins,email"]), password:  String! @rules(apply: ["min:4","max:25"])) : String!
+    loginVisitor(email: String! @rules(apply: ["email","exists:visitors,email"]), password:  String! @rules(apply: ["min:4","max:25"])) : String!
+    logoutAdmin: String! @guard
+    logoutVisitor: String! @guard
+
+}   
+
+
+ 

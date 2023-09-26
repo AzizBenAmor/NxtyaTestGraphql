@@ -1,0 +1,12 @@
+extend
+
+type Query {
+  me: Visitor! @auth
+}
+
+type Visitor{
+    id:ID!,
+    name:String!,
+    email:String!,
+    password:String!
+}
